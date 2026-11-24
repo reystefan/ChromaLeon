@@ -64,7 +64,7 @@ export default class ChromaLeon extends Extension {
     this._settings.set_string("last-error", "");
 
     this._notifSource = new Source({
-      title: "ChromaLeon",
+      title: "ChromaLeon 2",
       iconName: "preferences-desktop-theme-symbolic",
     });
     this._notifSource.connectObject(
@@ -83,13 +83,13 @@ export default class ChromaLeon extends Extension {
       try {
         const notification = new Notification({
           source: this._notifSource,
-          title: "ChromaLeon",
+          title: "ChromaLeon 2",
           body: msg,
           isTransient: false,
         });
         this._notifSource.addNotification(notification);
       } catch (e) {
-        console.error("ChromaLeon: failed to send notification", e);
+        console.error("ChromaLeon 2: failed to send notification", e);
       }
 
       this._settings.set_string("last-error", "");
@@ -276,7 +276,7 @@ export default class ChromaLeon extends Extension {
       this._interfaceSettings.get_string("icon-theme") === "Adwaita" &&
       this._settings.get_boolean("recolor-folders")
     ) {
-      this._interfaceSettings.set_string("icon-theme", "ChromaLeon");
+      this._interfaceSettings.set_string("icon-theme", "ChromaLeon2");
     }
 
     this._updateDesktopFile();
@@ -354,7 +354,7 @@ export default class ChromaLeon extends Extension {
       this._customStylesheet = null;
     }
 
-    if (this._interfaceSettings?.get_string("icon-theme") === "ChromaLeon") {
+    if (this._interfaceSettings?.get_string("icon-theme") === "ChromaLeon2") {
       this._interfaceSettings.set_string("icon-theme", "Adwaita");
     }
 
@@ -667,13 +667,13 @@ export default class ChromaLeon extends Extension {
     const cacheDir = GLib.get_user_cache_dir();
 
     const lightFile = Gio.File.new_for_path(
-      `${cacheDir}/chromaleon/chromaleon-shell.css`,
+      `${cacheDir}/chromaleon2/chromaleon-shell.css`,
     );
     const darkFile = Gio.File.new_for_path(
-      `${cacheDir}/chromaleon/chromaleon-shell-dark.css`,
+      `${cacheDir}/chromaleon2/chromaleon-shell-dark.css`,
     );
     const customStylesheet = Gio.File.new_for_path(
-      `${cacheDir}/chromaleon/chromaleon-shell-custom.css`,
+      `${cacheDir}/chromaleon2/chromaleon-shell-custom.css`,
     );
 
     const isLight = this._shouldUseLightShell();

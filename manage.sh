@@ -12,7 +12,7 @@ OPT_ZIP=false
 OPT_CHECK=false
 
 help() {
-    echo -e "${BLUE}ChromaLeon Build & Translation Script${NC}"
+    echo -e "${BLUE}ChromaLeon 2 Build & Translation Script${NC}"
     echo ""
     echo "Options:"
     echo "  -pot                Update .pot file with new template strings"
@@ -43,10 +43,10 @@ if [ "$#" -eq 0 ]; then
     read -p " -> Compile .mo files? (y/N): " resp
     [[ "$resp" =~ ^[SsYy]$ ]] && OPT_MO=true
 
-    read -p " -> Build ChromaLeon .zip package? (y/N): " resp
+    read -p " -> Build ChromaLeon 2 .zip package? (y/N): " resp
     [[ "$resp" =~ ^[SsYy]$ ]] && OPT_ZIP=true
 
-    read -p " -> Validate ChromaLeon .zip file? (y/N): " resp
+    read -p " -> Validate ChromaLeon 2 .zip file? (y/N): " resp
     [[ "$resp" =~ ^[SsYy]$ ]] && OPT_CHECK=true
 
     echo -e "------------------------------------------------------------\n"
@@ -92,7 +92,7 @@ if [ "$OPT_MO" = true ]; then
 fi
 
 if [ "$OPT_ZIP" = true ]; then
-    echo -e "\n${BLUE}Building ChromaLeon .zip package...${NC}"
+    echo -e "\n${BLUE}Building ChromaLeon 2 .zip package...${NC}"
 
     cp -r ./locale/zh_Hans ./locale/zh_CN
     cp -r ./po/zh_Hans.po ./po/zh_CN.po
@@ -113,7 +113,7 @@ if [ "$OPT_ZIP" = true ]; then
 fi
 
 if [ "$OPT_CHECK" = true ]; then
-    echo -e "\n${BLUE}Validating ChromaLeon .zip package...${NC}"
+    echo -e "\n${BLUE}Validating ChromaLeon 2 .zip package...${NC}"
 
     if [ ! -d "venv" ]; then
         echo "Creating Python virtual environment..."
@@ -123,7 +123,7 @@ if [ "$OPT_CHECK" = true ]; then
     source venv/bin/activate
     pip install -q -U shexli
 
-    PYTHONFAULTHANDLER=1 shexli user-accent-colors@fabito02.shell-extension.zip
+    PYTHONFAULTHANDLER=1 shexli user-accent-colors@reystefan.shell-extension.zip
     deactivate
 fi
 

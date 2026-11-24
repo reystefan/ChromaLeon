@@ -70,7 +70,7 @@ export async function createDesktopFile(path) {
   const desktopPath = GLib.build_filenamev([
     dataDir,
     "applications",
-    "com.github.fabito02.chromaleon.desktop",
+    "com.github.reystefan.chromaleon2.desktop",
   ]);
 
   const file = Gio.File.new_for_path(desktopPath);
@@ -80,7 +80,7 @@ export async function createDesktopFile(path) {
     appsDir.make_directory_with_parents(null);
   }
 
-  const iconBaseName = "io.github.Fabito02.chromaleon";
+  const iconBaseName = "io.github.reystefan.chromaleon2";
   const iconDestPath = GLib.build_filenamev([
     dataDir,
     "icons",
@@ -111,7 +111,7 @@ Terminal=false
 NoDisplay=false
 StartupNotify=true
 Categories=Settings;DesktopSettings;GTK;
-Name=ChromaLeon
+Name=ChromaLeon 2
 Comment=Adapt the system's colors like a chameleon
 Comment[pt_BR]=Adapte as cores do sistema como um camaleão
 Comment[es]=Adapta los colores del sistema como un camлеón
@@ -121,7 +121,7 @@ Comment[it]=Adatta i colori del sistema come un camaleonte
 Comment[ru]=Адаптируйте цвета системы, как хамелеон
 Exec=sh -c "cd '${path}' && GSETTINGS_SCHEMA_DIR=./schemas CHROMALEON_LAUNCH=1 gjs -m chromaleon.js"
 Icon=${iconBaseName}
-StartupWMClass=com.github.fabito02.chromaleon`;
+StartupWMClass=com.github.reystefan.chromaleon2`;
 
   let bytes = new GLib.Bytes(new TextEncoder().encode(content.trim()));
 
@@ -149,7 +149,7 @@ export function removeDesktopFile() {
   const desktopPath = GLib.build_filenamev([
     dataDir,
     "applications",
-    "com.github.fabito02.chromaleon.desktop",
+    "com.github.reystefan.chromaleon2.desktop",
   ]);
   const file = Gio.File.new_for_path(desktopPath);
 

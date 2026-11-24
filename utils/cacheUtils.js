@@ -26,7 +26,7 @@ import { writeFile, readFile } from "./fileUtils.js";
 import { throwIfCancelled, isCancelledError } from "./cancellation.js";
 
 const colorCacheFile = Gio.File.new_for_path(
-  `${GLib.get_user_cache_dir()}/chromaleon/color-cache.json`,
+  `${GLib.get_user_cache_dir()}/chromaleon2/color-cache.json`,
 );
 
 export async function writeColorCacheFile(key, value, cancellable = null) {

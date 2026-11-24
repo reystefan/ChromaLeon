@@ -464,7 +464,7 @@ export class PreferencesPage extends Adw.PreferencesPage {
     openCssButton.connect("clicked", () => {
       const homeDir = GLib.get_home_dir();
       const file = Gio.File.new_for_path(
-        `${homeDir}/.config/ChromaLeon/custom.css`,
+        `${homeDir}/.config/ChromaLeon2/custom.css`,
       );
       const uri = file.get_uri();
 

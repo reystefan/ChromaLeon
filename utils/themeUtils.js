@@ -181,7 +181,7 @@ export async function updateShellStylesheet(
   }
 
   const customStylesheetFile = Gio.File.new_for_path(
-    `${homeDir}/.config/ChromaLeon/custom.css`,
+    `${homeDir}/.config/ChromaLeon2/custom.css`,
   );
 
   const shellAccentTemplateLight = Gio.File.new_for_path(
@@ -232,7 +232,7 @@ export async function updateShellStylesheet(
         parentDir.make_directory_with_parents(null);
       }
 
-      const templateHeader = `/*\n* ChromaLeon Shell — Custom User Styles\n*/`;
+      const templateHeader = `/*\n* ChromaLeon 2 Shell — Custom User Styles\n*/`;
       await writeFile(customStylesheetFile, templateHeader, cancellable);
     } catch (e) {
       if (isCancelledError(e)) throw e;
@@ -283,13 +283,13 @@ export async function updateShellStylesheet(
 
       let cacheDir = GLib.get_user_cache_dir();
       let outputFile = Gio.File.new_for_path(
-        `${cacheDir}/chromaleon/chromaleon-shell.css`,
+        `${cacheDir}/chromaleon2/chromaleon-shell.css`,
       );
       let outputFileDark = Gio.File.new_for_path(
-        `${cacheDir}/chromaleon/chromaleon-shell-dark.css`,
+        `${cacheDir}/chromaleon2/chromaleon-shell-dark.css`,
       );
       let outputFileCustom = Gio.File.new_for_path(
-        `${cacheDir}/chromaleon/chromaleon-shell-custom.css`,
+        `${cacheDir}/chromaleon2/chromaleon-shell-custom.css`,
       );
 
       await Promise.all([
@@ -480,7 +480,7 @@ export async function updateIconPack(
     schema_id: "org.gnome.desktop.interface",
   });
 
-  if (!iconFolders && settings.get_string("icon-theme") === "ChromaLeon") {
+  if (!iconFolders && settings.get_string("icon-theme") === "ChromaLeon2") {
     settings.set_string("icon-theme", "Adwaita");
     return;
   }
