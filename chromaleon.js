@@ -89,7 +89,7 @@ export function buildUI(window, settings) {
   });
 
   const titleWidget = new Adw.ViewSwitcherTitle({
-    title: "ChromaLeon 2",
+    title: "ChromaLeon",
   });
   headerBar.set_title_widget(titleWidget);
 
@@ -181,20 +181,20 @@ export function buildUI(window, settings) {
 }
 
 if (GLib.getenv("CHROMALEON_LAUNCH") === "1") {
-  GLib.set_application_name("ChromaLeon 2");
+  GLib.set_application_name("ChromaLeon");
 
   const app = new Adw.Application({
-    application_id: "com.github.reystefan.chromaleon2",
+    application_id: "com.github.fabito02.chromaleon",
   });
 
   app.connect("activate", (app) => {
     const window = new Adw.ApplicationWindow({ application: app });
     window.set_default_size(490, 670);
-    window.set_title("ChromaLeon 2");
+    window.set_title("ChromaLeon");
 
     const settings = new Gio.Settings({
-      schema_id: "org.gnome.shell.extensions.chromaleon2",
-      path: "/org/gnome/shell/extensions/chromaleon2/",
+      schema_id: "org.gnome.shell.extensions.chromaleon",
+      path: "/org/gnome/shell/extensions/chromaleon/",
     });
 
     buildUI(window, settings);
